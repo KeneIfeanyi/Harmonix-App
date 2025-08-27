@@ -1,0 +1,91 @@
+body {
+	padding: 0px;
+	margin: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: black;
+}
+nav {
+	padding: 10px;
+	background-color: green;
+	color: white;
+	text-align: center;
+}
+.genreBtn {
+	margin-top: 12px;
+	padding: 8px;
+	border-radius: 15px;
+	border: none;
+	background-color: #fff;
+}
+.genreDiv .allBtn {
+	background-color: green;
+	color: white;
+}
+
+/* Cards  */
+.songCard {
+	background-color: white;
+	color: black;
+	width: 190px;
+	height: 200px;
+	margin-top: 15px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border-radius: 12px;
+	border: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.songInfo > * {
+	margin: 0px;
+	margin-bottom: 5px;
+	padding: 0px;
+}
+.songInfo2 {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 2px;
+}
+.cards {
+	display: flex;
+	justify-content: space-around;
+}
+
+/* Media Queries  */
+@media (max-width: 600px) {
+	.cards {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.songCard {
+		width: 90%;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+}
+@media (max-width: 900px) and (min-width: 601px) {
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+	}
+	.songCard {
+		width: 90%;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+}
+@media (min-width: 901px) {
+	.cards {
+		display: flex;
+		justify-content: space-between;
+	}
+	.songCard {
+		width: 100%;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+}
