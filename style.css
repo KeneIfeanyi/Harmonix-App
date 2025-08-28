@@ -12,7 +12,7 @@ nav {
 }
 .container {
 	width: 80%;
-	max-width: 1200px;
+	/* max-width: 1200px; */
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -23,14 +23,13 @@ nav {
 	border: none;
 	background-color: #fff;
 }
-.genreDiv .allBtn {
+.allBtn {
 	background-color: green;
 	color: white;
 }
 
 /* Cards  */
 .songCard {
-	/* background-color: white; */
 	color: black;
 	height: 200px;
 	margin-top: 15px;
@@ -44,21 +43,27 @@ nav {
 }
 .one {
 	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7348IChQ_7BJPolS3SyA_kT7nEJvuCa73WA&s);
+	filter: brightness(50%);
 }
 .two {
 	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSOL3s9WXFy47F2-sujwyBkjuL5RjUFB7yeA&s);
+	filter: brightness(50%);
 }
 .three {
 	background-image: url(https://previews.123rf.com/images/violin/violin1106/violin110600004/9681613-gramophone-on-old-sheet-music-retro-art-background.jpg);
+	filter: brightness(50%);
 }
 .four {
 	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVeh6LGFXDkBBkp0WBJZZ4pe8tKGTdBOU99Q&s);
+	filter: brightness(50%);
 }
 .five {
 	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh41cYgumRIjY9Hpa2dTmquRs6_EDkRo3HcA&s);
+	filter: brightness(50%);
 }
 .six {
 	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-Apu1JPEhQk5HgxHA4jqlmFMVPVfl6ji1RQ&s);
+	filter: brightness(50%);
 }
 .songInfo > * {
 	margin: 0px;
@@ -107,4 +112,14 @@ nav {
 		margin-left: 5px;
 		margin-right: 5px;
 	}
+}
+
+.active {
+	background-color: green;
+	color: white;
+}
+
+.inactive {
+	background-color: white;
+	color: black;
 }
