@@ -12,8 +12,7 @@ nav {
 	margin-bottom: 20px;
 }
 .container {
-	width: 80%;
-	/* max-width: 1200px; */
+	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -31,54 +30,52 @@ nav {
 
 /* Cards  */
 .songCard {
-	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7348IChQ_7BJPolS3SyA_kT7nEJvuCa73WA&s);
-	filter: brightness(50%);
 	color: white;
-	height: auto;
+	height: 170px;
 	margin-top: 15px;
-	padding-top: 5px;
+	padding-top: 3px;
 	padding-left: 5px;
 	padding-right: 5px;
 	border-radius: 12px;
 	border: none;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	position: relative;
 }
-.one {
-	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7348IChQ_7BJPolS3SyA_kT7nEJvuCa73WA&s);
-	filter: brightness(50%);
+.songCard::after {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	content: "";
 }
-/* .two {
-	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSOL3s9WXFy47F2-sujwyBkjuL5RjUFB7yeA&s);
-	filter: brightness(50%);
+.songCard p,
+.songCard h4,
+.songCard h3,
+.songCard h6,
+.songCard h5 {
+	z-index: 1;
 }
-.three {
-	background-image: url(https://previews.123rf.com/images/violin/violin1106/violin110600004/9681613-gramophone-on-old-sheet-music-retro-art-background.jpg);
-	filter: brightness(50%);
-}
-.four {
-	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVeh6LGFXDkBBkp0WBJZZ4pe8tKGTdBOU99Q&s);
-	filter: brightness(50%);
-}
-.five {
-	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh41cYgumRIjY9Hpa2dTmquRs6_EDkRo3HcA&s);
-	filter: brightness(50%);
-}
-.six {
-	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-Apu1JPEhQk5HgxHA4jqlmFMVPVfl6ji1RQ&s);
-	filter: brightness(50%);
-}
-.songInfo > * {
-	margin: 0px;
-	margin-bottom: 5px;
-	padding: 0px;
-}
-.songInfo2 {
+.genre-Plays {
 	display: flex;
 	justify-content: space-between;
-	padding-bottom: 2px;
-} */
+	position: absolute;
+	top: 120px;
+	width: 90%;
+}
+.songtitle {
+	margin-top: 2px;
+}
+.songtitle3 {
+	position: absolute;
+	top: 80px;
+}
+.songtitle2 {
+	position: absolute;
+	top: 60px;
+}
 
 /* Media Queries  */
 @media (max-width: 600px) {

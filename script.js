@@ -138,7 +138,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			artist: "The Weeknd",
 			genre: "Pop",
 			totalPlays: 1876543210,
-			previewImage: "https://i.scdn.co/image/ab67616d0000b273example1",
+			previewImage:
+				"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSOL3s9WXFy47F2-sujwyBkjuL5RjUFB7yeA&s",
 			duration: "3:22",
 		},
 		{
@@ -147,7 +148,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			artist: "Dua Lipa",
 			genre: "Pop/Dance",
 			totalPlays: 1245678934,
-			previewImage: "https://i.scdn.co/image/ab67616d0000b273example2",
+			previewImage:
+				"https://previews.123rf.com/images/violin/violin1106/violin110600004/9681613-gramophone-on-old-sheet-music-retro-art-background.jpg",
 			duration: "3:24",
 		},
 		{
@@ -156,7 +158,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			artist: "Ed Sheeran",
 			genre: "Pop",
 			totalPlays: 3102345678,
-			previewImage: "https://i.scdn.co/image/ab67616d0000b273example3",
+			previewImage:
+				"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVeh6LGFXDkBBkp0WBJZZ4pe8tKGTdBOU99Q&s",
 			duration: "4:23",
 		},
 		{
@@ -165,7 +168,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			artist: "Eminem",
 			genre: "Hip-Hop/Rap",
 			totalPlays: 980234567,
-			previewImage: "https://i.scdn.co/image/ab67616d0000b273example4",
+			previewImage:
+				"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh41cYgumRIjY9Hpa2dTmquRs6_EDkRo3HcA&s",
 			duration: "5:20",
 		},
 		{
@@ -174,7 +178,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			artist: "Justin Bieber ft. Daniel Caesar, Giveon",
 			genre: "R&B/Pop",
 			totalPlays: 765432109,
-			previewImage: "https://i.scdn.co/image/ab67616d0000b273example5",
+			previewImage:
+				"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-Apu1JPEhQk5HgxHA4jqlmFMVPVfl6ji1RQ&s",
 			duration: "3:18",
 		},
 		{
@@ -183,21 +188,24 @@ document.addEventListener("DOMContentLoaded", () => {
 			artist: "Nirvana",
 			genre: "Rock/Grunge",
 			totalPlays: 876543210,
-			previewImage: "https://i.scdn.co/image/ab67616d0000b273example6",
+			previewImage:
+				"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7348IChQ_7BJPolS3SyA_kT7nEJvuCa73WA&s",
 			duration: "5:01",
 		},
 	];
 	const cardsContainer = document.getElementById("cardsContainer");
-
 	spotifyMusicList.forEach((song) => {
 		const card = document.createElement("div");
 		card.classList.add("songCard");
 		card.innerHTML = `
-    <img src="${song.previewImage}" alt="${song.title}">
-    <h3>Artist: ${song.artist}</h3>
-    <p>Genre: ${song.genre}</p>
-    <p>Duration: ${song.duration}</p>
-    <p>Total Plays: ${song.totalPlays.toLocaleString()}</p>`;
+    		<h5 class='songtitle'>${song.title}</h5>
+			<h5 class="songtitle2">${song.title}</h5>
+			<h5 class="songtitle3">${song.artist}</h5>
+			<div class="genre-Plays">
+				<h6>${song.genre}</h6>
+				<h6>${song.totalPlays.toLocaleString()} plays</h6>
+			</div>`;
+		card.style.backgroundImage = `url("${song.previewImage}")`;
 		cardsContainer.appendChild(card);
 	});
 });
