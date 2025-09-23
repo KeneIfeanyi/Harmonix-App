@@ -6,129 +6,22 @@ document.addEventListener("DOMContentLoaded", () => {
 	const afroBtn = document.getElementById("afroBtn");
 	const rockBtn = document.getElementById("rockBtn");
 
-	// ALL BUTTON
-	AllBtn.addEventListener("click", () => {
-		AllBtn.classList.add("active");
-		AllBtn.classList.remove("inactive");
+	const buttons = [AllBtn, popBtn, hipPopBtn, jazzBtn, afroBtn, rockBtn];
 
-		popBtn.classList.remove("active");
-		popBtn.classList.add("inactive");
+	function setActiveButton(activeBtn) {
+		buttons.forEach((btn) => {
+			if (btn === activeBtn) {
+				btn.classList.add("active");
+				btn.classList.remove("inactive");
+			} else {
+				btn.classList.remove("active");
+				btn.classList.add("inactive");
+			}
+		});
+	}
 
-		hipPopBtn.classList.remove("active");
-		hipPopBtn.classList.add("inactive");
-
-		jazzBtn.classList.remove("active");
-		jazzBtn.classList.add("inactive");
-
-		afroBtn.classList.remove("active");
-		afroBtn.classList.add("inactive");
-
-		rockBtn.classList.remove("active");
-		rockBtn.classList.add("inactive");
-	});
-
-	// POP BUTTON
-	popBtn.addEventListener("click", () => {
-		popBtn.classList.add("active");
-		popBtn.classList.remove("inactive");
-
-		AllBtn.classList.remove("active");
-		AllBtn.classList.add("inactive");
-
-		hipPopBtn.classList.remove("active");
-		hipPopBtn.classList.add("inactive");
-
-		jazzBtn.classList.remove("active");
-		jazzBtn.classList.add("inactive");
-
-		afroBtn.classList.remove("active");
-		afroBtn.classList.add("inactive");
-
-		rockBtn.classList.remove("active");
-		rockBtn.classList.add("inactive");
-	});
-
-	// HIPPOP BUTTON
-	hipPopBtn.addEventListener("click", () => {
-		hipPopBtn.classList.add("active");
-		hipPopBtn.classList.remove("inactive");
-
-		AllBtn.classList.remove("active");
-		AllBtn.classList.add("inactive");
-
-		popBtn.classList.remove("active");
-		popBtn.classList.add("inactive");
-
-		jazzBtn.classList.remove("active");
-		jazzBtn.classList.add("inactive");
-
-		afroBtn.classList.remove("active");
-		afroBtn.classList.add("inactive");
-
-		rockBtn.classList.remove("active");
-		rockBtn.classList.add("inactive");
-	});
-
-	// JAZZ BUTTON
-	jazzBtn.addEventListener("click", () => {
-		jazzBtn.classList.add("active");
-		jazzBtn.classList.remove("inactive");
-
-		AllBtn.classList.remove("active");
-		AllBtn.classList.add("inactive");
-
-		popBtn.classList.remove("active");
-		popBtn.classList.add("inactive");
-
-		hipPopBtn.classList.remove("active");
-		hipPopBtn.classList.add("inactive");
-
-		afroBtn.classList.remove("active");
-		afroBtn.classList.add("inactive");
-
-		rockBtn.classList.remove("active");
-		rockBtn.classList.add("inactive");
-	});
-
-	// AFROBEAT BUTTON
-	afroBtn.addEventListener("click", () => {
-		afroBtn.classList.add("active");
-		afroBtn.classList.remove("inactive");
-
-		AllBtn.classList.remove("active");
-		AllBtn.classList.add("inactive");
-
-		popBtn.classList.remove("active");
-		popBtn.classList.add("inactive");
-
-		hipPopBtn.classList.remove("active");
-		hipPopBtn.classList.add("inactive");
-
-		jazzBtn.classList.remove("active");
-		jazzBtn.classList.add("inactive");
-
-		rockBtn.classList.remove("active");
-		rockBtn.classList.add("inactive");
-	});
-
-	rockBtn.addEventListener("click", () => {
-		rockBtn.classList.add("active");
-		rockBtn.classList.remove("inactive");
-
-		AllBtn.classList.remove("active");
-		AllBtn.classList.add("inactive");
-
-		popBtn.classList.remove("active");
-		popBtn.classList.add("inactive");
-
-		hipPopBtn.classList.remove("active");
-		hipPopBtn.classList.add("inactive");
-
-		jazzBtn.classList.remove("active");
-		jazzBtn.classList.add("inactive");
-
-		afroBtn.classList.remove("active");
-		afroBtn.classList.add("inactive");
+	buttons.forEach((btn) => {
+		btn.addEventListener("click", () => setActiveButton(btn));
 	});
 
 	const spotifyMusicList = [
@@ -197,14 +90,15 @@ document.addEventListener("DOMContentLoaded", () => {
 	spotifyMusicList.forEach((song) => {
 		const card = document.createElement("div");
 		card.classList.add("songCard");
-		card.innerHTML = `
-    		<h5 class='songtitle'>${song.title}</h5>
-			<h5 class="songtitle2">${song.title}</h5>
-			<h5 class="songtitle3">${song.artist}</h5>
-			<div class="genre-Plays">
-				<h6>${song.genre}</h6>
-				<h6>${song.totalPlays.toLocaleString()} plays</h6>
-			</div>`;
+		card.innerHTML = `<h5 class="top-title">${song.artist}</h5>
+					<div class="middle-title">
+						<h5>${song.artist}</h5>
+						<h5>${song.title}</h5>
+					</div>
+					<div class="footer-title">
+						<h5>${song.genre}</h5>
+						<h5>${song.totalPlays}</h5>
+					</div>`;
 		card.style.backgroundImage = `url("${song.previewImage}")`;
 		cardsContainer.appendChild(card);
 	});
