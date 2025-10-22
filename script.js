@@ -6,9 +6,66 @@ document.addEventListener("DOMContentLoaded", () => {
 	const afroBtn = document.getElementById("afroBtn");
 	const rockBtn = document.getElementById("rockBtn");
 
+	// Example: GET request to your API
+	let spotifyMusicList = [];
+	let musicBank = [];
+	fetch("https://bulk-sms-be.onrender.com/api/v1/messaging/music-list")
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error("Network response was not ok " + response.statusText);
+			}
+			return response.json();
+		})
+		.then((res) => {
+			console.log("✅ API Response:", res);
+			spotifyMusicList = res.data;
+			musicBank = res.data;
+
+			const cardsContainer = document.getElementById("cardsContainer");
+			spotifyMusicList.forEach((music) => {
+				const card = document.createElement("div");
+				card.classList.add("songCard");
+				card.innerHTML = `<h5 class="top-title">${music.artist}</h5>
+					<div class="middle-title">
+						<h5>${music.artist}</h5>
+						<h5>${music.title}</h5>
+					</div>
+					<div class="footer-title">
+						<h5>${music.genre}</h5>
+						<h5>${music.totalPlays}</h5>
+					</div>`;
+				card.style.backgroundImage = `url("${music.image}")`;
+				cardsContainer.appendChild(card);
+			});
+		})
+		.catch((error) => {
+			console.error("❌ API Error:", error);
+		});
+
 	const buttons = [AllBtn, popBtn, hipPopBtn, jazzBtn, afroBtn, rockBtn];
 
 	function setActiveButton(activeBtn) {
+		spotifyMusicList = musicBank.filter((music) => {
+			if (activeBtn.id === "jazzBtn") {
+				return music.genre.toLowerCase() === "jazz";
+			}
+			if (activeBtn.id === "popBtn") {
+				return music.genre.toLowerCase() === "pop";
+			}
+			if (activeBtn.id === "hipPopBtn") {
+				return music.genre.toLowerCase() === "hip-hop";
+			}
+			if (activeBtn.id === "rockBtn") {
+				return music.genre.toLowerCase() === "rock";
+			}
+			if (activeBtn.id === "afroBtn") {
+				return music.genre.toLowerCase() === "r&b";
+			}
+			if (activeBtn.id === "AllBtn") {
+				return true;
+			}
+		});
+
 		buttons.forEach((btn) => {
 			if (btn === activeBtn) {
 				btn.classList.add("active");
@@ -22,84 +79,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	buttons.forEach((btn) => {
 		btn.addEventListener("click", () => setActiveButton(btn));
-	});
-
-	const spotifyMusicList = [
-		{
-			id: 1,
-			title: "Blinding Lights",
-			artist: "The Weeknd",
-			genre: "Pop",
-			totalPlays: 1876543210,
-			previewImage:
-				"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSOL3s9WXFy47F2-sujwyBkjuL5RjUFB7yeA&s",
-			duration: "3:22",
-		},
-		{
-			id: 2,
-			title: "Levitating",
-			artist: "Dua Lipa",
-			genre: "Pop/Dance",
-			totalPlays: 1245678934,
-			previewImage:
-				"https://previews.123rf.com/images/violin/violin1106/violin110600004/9681613-gramophone-on-old-sheet-music-retro-art-background.jpg",
-			duration: "3:24",
-		},
-		{
-			id: 3,
-			title: "Shape of You",
-			artist: "Ed Sheeran",
-			genre: "Pop",
-			totalPlays: 3102345678,
-			previewImage:
-				"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVeh6LGFXDkBBkp0WBJZZ4pe8tKGTdBOU99Q&s",
-			duration: "4:23",
-		},
-		{
-			id: 4,
-			title: "Lose Yourself",
-			artist: "Eminem",
-			genre: "Hip-Hop/Rap",
-			totalPlays: 980234567,
-			previewImage:
-				"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh41cYgumRIjY9Hpa2dTmquRs6_EDkRo3HcA&s",
-			duration: "5:20",
-		},
-		{
-			id: 5,
-			title: "Peaches",
-			artist: "Justin Bieber ft. Daniel Caesar, Giveon",
-			genre: "R&B/Pop",
-			totalPlays: 765432109,
-			previewImage:
-				"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-Apu1JPEhQk5HgxHA4jqlmFMVPVfl6ji1RQ&s",
-			duration: "3:18",
-		},
-		{
-			id: 6,
-			title: "Smells Like Teen Spirit",
-			artist: "Nirvana",
-			genre: "Rock/Grunge",
-			totalPlays: 876543210,
-			previewImage:
-				"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7348IChQ_7BJPolS3SyA_kT7nEJvuCa73WA&s",
-			duration: "5:01",
-		},
-	];
-	const cardsContainer = document.getElementById("cardsContainer");
-	spotifyMusicList.forEach((song) => {
-		const card = document.createElement("div");
-		card.classList.add("songCard");
-		card.innerHTML = `<h5 class="top-title">${song.artist}</h5>
-					<div class="middle-title">
-						<h5>${song.artist}</h5>
-						<h5>${song.title}</h5>
-					</div>
-					<div class="footer-title">
-						<h5>${song.genre}</h5>
-						<h5>${song.totalPlays}</h5>
-					</div>`;
-		card.style.backgroundImage = `url("${song.previewImage}")`;
-		cardsContainer.appendChild(card);
 	});
 });
