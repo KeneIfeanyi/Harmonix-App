@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <h5>${music.genre}</h5>
         <h5>${music.totalPlays}</h5>
       </div>`;
-      card.style.backgroundImage = `url("https://indiater.com/wp-content/uploads/2021/06/Free-Music-Album-Cover-Art-Banner-Photoshop-Template-1024x1024.jpg")`;
+      card.style.backgroundImage = `url("${music.image}")`;
       cardsContainer.appendChild(card);
     });
   }
